@@ -6,7 +6,6 @@
     <img src="https://img.shields.io/badge/Python-Automation-yellow?style=for-the-badge&logo=python" alt="Python Automation" />
     <img src="https://img.shields.io/badge/Windows-Portable-lightgrey?style=for-the-badge&logo=windows" alt="Windows Portable" />
 </p>
-
 <p align="center"><i>Un environnement de développement PHP local, rapide, portable et élégant. Alimenté par la puissance du Phoenix. 🐦‍🔥</i></p>
 
 ---
