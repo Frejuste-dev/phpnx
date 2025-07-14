@@ -1,0 +1,17 @@
+# Dépendances Python pour PHPNX
+# Le Phoenix s'élève avec ces outils essentiels
+
+# Gestion des processus système
+psutil>=5.9.0
+
+# Interface graphique (optionnel pour futures versions)
+# tkinter est inclus avec Python par défaut
+
+# Utilitaires pour les requêtes HTTP (pour futures fonctionnalités)
+requests>=2.28.0
+
+# Gestion des couleurs dans la console
+colorama>=0.4.6
+
+# Outils de développement (optionnel)
+# watchdog>=2.1.9  # Pour surveiller les changements de fichiers
