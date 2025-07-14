@@ -1,0 +1,119 @@
+# PHPNX - Le Phoenix s'élève !
+# Fichiers et dossiers à ignorer dans le contrôle de version
+
+# Environnement virtuel Python
+.env/
+venv/
+env/
+ENV/
+
+# Dossiers des binaires (à télécharger séparément)
+php/
+nginx/
+
+# Logs
+logs/
+*.log
+nginx/logs/
+*.pid
+
+# Fichiers temporaires
+tmp/
+temp/
+*.tmp
+
+# Fichiers de cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Fichiers de configuration locaux
+config/local_settings.json
+.env.local
+.env.production
+
+# Fichiers système
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Fichiers d'éditeur
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Fichiers de sauvegarde
+*.bak
+*.backup
+*.old
+
+# Dossiers de distribution
+dist/
+build/
+*.egg-info/
+
+# Fichiers de test
+coverage/
+.coverage
+.pytest_cache/
+.tox/
+
+# Fichiers de débogage
+*.debug
+*.dmp
+
+# Fichiers de package
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Fichiers de base de données (si utilisés)
+*.db
+*.sqlite
+*.sqlite3
+
+# Fichiers de session PHP
+/tmp/
+/sessions/
+
+# Fichiers de cache d'OPCache
+*.cache
+
+# Fichiers de configuration sensibles
+.env
+.env.local
+.env.production
+.env.staging
+
+# Dossiers spécifiques du projet
+/downloads/
+/uploads/
+/backups/
+
+# Fichiers de processus
+*.lock
+*.pid
+*.seed
+
+# Fichiers de documentation générés
+/docs/build/
+/docs/_build/
+
+# Fichiers de test et coverage
+/tests/coverage/
+/tests/reports/
