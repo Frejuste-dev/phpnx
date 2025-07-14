@@ -1,0 +1,127 @@
+/* PHPNX - Le Phoenix s'élève ! */
+/* Styles élégants inspirés du Phoenix */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --phoenix-red: #dc2626;
+    --phoenix-orange: #ea580c;
+    --phoenix-yellow: #d97706;
+    --phoenix-gold: #f59e0b;
+    --dark-bg: #111827;
+    --dark-card: #1f2937;
+    --dark-border: #374151;
+    --light-text: #f9fafb;
+    --gray-text: #9ca3af;
+    --accent-blue: #3b82f6;
+    --success-green: #10b981;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--light-text);
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #1e293b 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header avec effet Phoenix */
+.header {
+    text-align: center;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.phoenix-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: phoenixFlame 2s ease-in-out infinite alternate;
+    display: inline-block;
+}
+
+@keyframes phoenixFlame {
+    0% { transform: scale(1) rotate(0deg); filter: hue-rotate(0deg); }
+    50% { transform: scale(1.1) rotate(5deg); filter: hue-rotate(15deg); }
+    100% { transform: scale(1.05) rotate(-5deg); filter: hue-rotate(30deg); }
+}
+
+.header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--phoenix-red), var(--phoenix-orange), var(--phoenix-yellow), var(--phoenix-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    text-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--gray-text);
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+/* Contenu principal */
+.main-content {
+    padding: 40px 0;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 40px 30px;
+    background: rgba(31, 41, 55, 0.6);
+    border-radius: 20px;
+    border: 1px solid var(--dark-border);
+    backdrop-filter: blur(10px);
+}
+
+.welcome-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: var(--phoenix-orange);
+}
+
+.welcome-section p {
+    font-size: 1.1rem;
+    color: var(--gray-text);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grille d'informations */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.info-card {
+    background: var(--dark-card);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid var(--dark-border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
