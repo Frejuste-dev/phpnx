@@ -2,62 +2,114 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>🔥 PHPNX - Le Phoenix s'élève</title>
-    <link rel="icon" href="/static/favicon.ico">
-    <style>
-        body {
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #fff;
-            font-family: 'Segoe UI', sans-serif;
-            padding: 2rem;
-        }
-        header h1 { font-size: 2.5rem; color: #ff6f61; animation: rise 2s ease; text-align: center; }
-        main pre { background: #111; padding: 1rem; border-radius: 8px; color: #00ffcc; overflow: auto; }
-        footer {
-            margin-top: 2rem;
-            background: #111;
-            padding: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            color: #ccc;
-        }
-        footer a { color: #0ff; text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-        .footer-section { min-width: 200px; margin: 1rem; }
-        .footer-section h3 { color: #ffcc00; margin-bottom: 0.5rem; }
-
-        @keyframes rise {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHPNX - Le Phoenix s'élève !</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
-<header>
-    <h1>🔥 Bienvenue sur PHPNX - Le Phoenix s'élève !</h1>
-</header>
-<main>
-    <h2>📜 Informations PHP</h2>
-    <pre><?php phpinfo(); ?></pre>
-</main>
-<footer>
-    <div class="footer-section">
-        <h3>📞 Contact</h3>
-        <p>Tél : <a href="tel:+2250700000000">+225 07 00 00 00 00</a></p>
-        <p>Email : <a href="mailto:frejuste.dev@gmail.com">frejuste.dev@gmail.com</a></p>
+    <div class="container">
+        <header class="header">
+            <div class="phoenix-icon">🔥</div>
+            <h1>PHPNX</h1>
+            <p class="subtitle">Le Phoenix s'élève !</p>
+        </header>
+
+        <main class="main-content">
+            <div class="welcome-section">
+                <h2>🎉 Bienvenue sur votre serveur PHPNX</h2>
+                <p>Votre environnement de développement PHP est prêt et fonctionne parfaitement !</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🐍 PHP</h3>
+                    <p><strong>Version :</strong> <?php echo phpversion(); ?></p>
+                    <p><strong>Serveur :</strong> <?php echo $_SERVER['SERVER_SOFTWARE'] ?? 'FastCGI'; ?></p>
+                    <a href="/phpinfo" class="btn">Voir phpinfo()</a>
+                </div>
+
+                <div class="info-card">
+                    <h3>🌐 Serveur</h3>
+                    <p><strong>Host :</strong> <?php echo $_SERVER['HTTP_HOST']; ?></p>
+                    <p><strong>Port :</strong> <?php echo $_SERVER['SERVER_PORT']; ?></p>
+                    <p><strong>Protocole :</strong> <?php echo $_SERVER['SERVER_PROTOCOL']; ?></p>
+                </div>
+
+                <div class="info-card">
+                    <h3>📊 Système</h3>
+                    <p><strong>OS :</strong> <?php echo PHP_OS; ?></p>
+                    <p><strong>Architecture :</strong> <?php echo php_uname('m'); ?></p>
+                    <p><strong>Mémoire :</strong> <?php echo ini_get('memory_limit'); ?></p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🕐 Temps</h3>
+                    <p><strong>Heure serveur :</strong> <?php echo date('H:i:s'); ?></p>
+                    <p><strong>Date :</strong> <?php echo date('d/m/Y'); ?></p>
+                    <p><strong>Timezone :</strong> <?php echo date_default_timezone_get(); ?></p>
+                </div>
+            </div>
+
+            <div class="extensions-section">
+                <h3>🧩 Extensions PHP Chargées</h3>
+                <div class="extensions-grid">
+                    <?php
+                    $extensions = get_loaded_extensions();
+                    sort($extensions);
+                    foreach (array_slice($extensions, 0, 12) as $extension) {
+                        echo "<span class='extension-badge'>{$extension}</span>";
+                    }
+                    if (count($extensions) > 12) {
+                        echo "<span class='extension-badge more'>+" . (count($extensions) - 12) . " autres</span>";
+                    }
+                    ?>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h3>🚀 Actions Rapides</h3>
+                <div class="actions-grid">
+                    <a href="/phpinfo" class="action-btn">
+                        <span class="icon">📋</span>
+                        <span>PHP Info</span>
+                    </a>
+                    <a href="/" class="action-btn">
+                        <span class="icon">🏠</span>
+                        <span>Accueil</span>
+                    </a>
+                    <a href="#" onclick="window.location.reload()" class="action-btn">
+                        <span class="icon">🔄</span>
+                        <span>Actualiser</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>🔥 PHPNX</h4>
+                    <p>Environnement de développement PHP portable et élégant</p>
+                </div>
+                <div class="footer-section">
+                    <h4>👨‍💻 Développeur</h4>
+                    <p><strong>Kei Prince Frejuste</strong></p>
+                    <p>Web & Software Developer</p>
+                </div>
+                <div class="footer-section">
+                    <h4>📞 Contact</h4>
+                    <p>📧 <a href="mailto:keifrejuste26@gmail.com">keifrejuste26@gmail.com</a></p>
+                    <p>🌐 <a href="https://portfolio-edumanagers-projects.vercel.app/" target="_blank">Portfolio</a></p>
+                    <p>💻 <a href="https://github.com/frejuste26" target="_blank">GitHub</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <?php echo date('Y'); ?> PHPNX - Le Phoenix s'élève ! Comme le Phoenix, tout projet peut renaître de ses cendres.</p>
+            </div>
+        </footer>
     </div>
-    <div class="footer-section">
-        <h3>🧠 Développement</h3>
-        <p>Kei Prince Frejuste</p>
-        <p>Web & Software Engineer</p>
-    </div>
-    <div class="footer-section">
-        <h3>🌍 Liens</h3>
-        <p><a href="https://github.com/frejuste" target="_blank">GitHub</a></p>
-        <p><a href="https://frejuste.dev" target="_blank">Portfolio</a></p>
-        <p><a href="/cv.pdf" target="_blank">Mon CV</a></p>
-    </div>
-</footer>
+
+    <script src="/script.js"></script>
 </body>
 </html>
