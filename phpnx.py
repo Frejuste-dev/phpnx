@@ -21,9 +21,7 @@ class PHPNX:
         self.base_dir = Path(__file__).parent
         self.config_file = self.base_dir / "config" / "settings.json"
         self.log_file = self.base_dir / "logs" / "phpnx.log"
-        self.php_port = 9000
         self.nginx_port = 80
-        self.processes = {"php": None, "nginx": None}
         
         # Créer les dossiers nécessaires
         self.create_directories()
@@ -40,7 +38,6 @@ class PHPNX:
     def load_config(self):
         """Charger la configuration"""
         default_config = {
-            "php_port": 9000,
             "nginx_port": 80,
             "auto_open_browser": True,
             "app_name": "PHPNX - Phoenix Server",
@@ -51,7 +48,6 @@ class PHPNX:
             try:
                 with open(self.config_file, 'r') as f:
                     config = json.load(f)
-                    self.php_port = config.get("php_port", 9000)
                     self.nginx_port = config.get("nginx_port", 80)
             except Exception as e:
                 self.log(f"Erreur lors du chargement de la config: {e}")
@@ -69,109 +65,42 @@ class PHPNX:
             f.write(log_entry)
         print(log_entry.strip())
         
-    def check_dependencies(self):
-        """Vérifier que PHP et NGINX sont présents"""
-        php_path = self.base_dir / "php" / "php-cgi.exe"
-        nginx_path = self.base_dir / "nginx" / "nginx.exe"
-        
-        if not php_path.exists():
-            self.log("❌ PHP non trouvé. Téléchargez PHP depuis https://www.php.net/downloads")
-            return False
-            
-        if not nginx_path.exists():
-            self.log("❌ NGINX non trouvé. Téléchargez NGINX depuis https://nginx.org/en/download.html")
-            return False
-            
-        return True
-        
-    def kill_existing_processes(self):
-        """Tuer les processus PHP/NGINX existants"""
-        self.log("🧹 Nettoyage des anciens processus...")
-        
-        for proc in psutil.process_iter(['pid', 'name']):
-            try:
-                if proc.info['name'] in ['php-cgi.exe', 'nginx.exe']:
-                    proc.terminate()
-                    self.log(f"✅ Processus {proc.info['name']} (PID: {proc.info['pid']}) terminé")
-            except (psutil.NoSuchProcess, psutil.AccessDenied):
-                pass
-                
-    def start_php(self):
-        """Démarrer PHP FastCGI"""
-        php_path = self.base_dir / "php" / "php-cgi.exe"
-        
-        cmd = [
-            str(php_path),
-            "-b", f"127.0.0.1:{self.php_port}",
-            "-c", str(self.base_dir / "php" / "php.ini")
-        ]
-        
+    def run_command(self, command):
+        """Exécuter une commande shell"""
         try:
-            self.processes["php"] = subprocess.Popen(
-                cmd,
-                cwd=str(self.base_dir / "app"),
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE
-            )
-            self.log(f"🐍 PHP FastCGI démarré sur le port {self.php_port}")
-            return True
-        except Exception as e:
-            self.log(f"❌ Erreur lors du démarrage de PHP: {e}")
-            return False
-            
-    def start_nginx(self):
-        """Démarrer NGINX"""
-        nginx_path = self.base_dir / "nginx" / "nginx.exe"
-        
-        cmd = [
-            str(nginx_path),
-            "-c", str(self.base_dir / "nginx" / "conf" / "nginx.conf")
-        ]
-        
-        try:
-            self.processes["nginx"] = subprocess.Popen(
-                cmd,
-                cwd=str(self.base_dir / "nginx"),
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE
-            )
-            self.log(f"🌐 NGINX démarré sur le port {self.nginx_port}")
-            return True
-        except Exception as e:
-            self.log(f"❌ Erreur lors du démarrage de NGINX: {e}")
-            return False
-            
+            result = subprocess.run(command, shell=True, check=True, capture_output=True, text=True)
+            return result.stdout.strip()
+        except subprocess.CalledProcessError as e:
+            self.log(f"Erreur lors de l'exécution de la commande: {e}")
+            self.log(f"Stderr: {e.stderr}")
+            return None
+
     def start_servers(self):
         """Démarrer les serveurs PHP + NGINX"""
-        if not self.check_dependencies():
-            return False
-            
-        self.kill_existing_processes()
-        time.sleep(2)
-        
-        if self.start_php() and self.start_nginx():
-            self.log("🔥 Serveurs PHPNX démarrés avec succès!")
-            
-            # Ouvrir le navigateur
-            time.sleep(1)
-            webbrowser.open(f"http://localhost:{self.nginx_port}")
-            return True
-        else:
-            self.log("❌ Échec du démarrage des serveurs")
-            return False
+        self.log("🚀 Démarrage des serveurs...")
+        self.run_command("sudo systemctl start php8.3-fpm")
+        self.run_command("sudo systemctl start nginx")
+        self.log("🔥 Serveurs PHPNX démarrés avec succès!")
+
+        # Ouvrir le navigateur
+        time.sleep(1)
+        webbrowser.open(f"http://localhost:{self.nginx_port}")
+        return True
             
     def stop_servers(self):
         """Arrêter les serveurs"""
         self.log("🛑 Arrêt des serveurs...")
-        self.kill_existing_processes()
+        self.run_command("sudo systemctl stop php8.3-fpm")
+        self.run_command("sudo systemctl stop nginx")
         self.log("✅ Serveurs arrêtés")
         
     def restart_servers(self):
         """Redémarrer les serveurs"""
         self.log("🔄 Redémarrage des serveurs...")
-        self.stop_servers()
-        time.sleep(2)
-        return self.start_servers()
+        self.run_command("sudo systemctl restart php8.3-fpm")
+        self.run_command("sudo systemctl restart nginx")
+        self.log("🔥 Serveurs PHPNX redémarrés avec succès!")
+        return True
         
     def show_menu(self):
         """Afficher le menu interactif"""
@@ -217,23 +146,11 @@ class PHPNX:
         print("\n📊 Statut des serveurs:")
         print("═══════════════════════")
         
-        # Vérifier les ports
-        php_status = self.check_port(self.php_port)
-        nginx_status = self.check_port(self.nginx_port)
+        php_status = self.run_command("systemctl is-active php8.3-fpm")
+        nginx_status = self.run_command("systemctl is-active nginx")
         
-        print(f"🐍 PHP FastCGI (port {self.php_port}): {'✅ Actif' if php_status else '❌ Inactif'}")
-        print(f"🌐 NGINX (port {self.nginx_port}): {'✅ Actif' if nginx_status else '❌ Inactif'}")
-        
-    def check_port(self, port):
-        """Vérifier si un port est utilisé"""
-        import socket
-        try:
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                s.settimeout(1)
-                result = s.connect_ex(('127.0.0.1', port))
-                return result == 0
-        except:
-            return False
+        print(f"🐍 PHP-FPM: {'✅ Actif' if php_status == 'active' else '❌ Inactif'}")
+        print(f"🌐 NGINX: {'✅ Actif' if nginx_status == 'active' else '❌ Inactif'}")
 
 def main():
     """Fonction principale"""
