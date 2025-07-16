@@ -1,0 +1,7 @@
+{
+    "php_port": 9000,
+    "nginx_port": 80,
+    "auto_open_browser": true,
+    "app_name": "PHPNX - Phoenix Server",
+    "author": "Kei Prince Frejuste"
+}
