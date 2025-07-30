@@ -13,5 +13,8 @@ requests>=2.28.0
 # Gestion des couleurs dans la console
 colorama>=0.4.6
 
+# WebSocket pour interface temps réel
+websockets>=10.4
+
 # Outils de développement (optionnel)
 # watchdog>=2.1.9  # Pour surveiller les changements de fichiers

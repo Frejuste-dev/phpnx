@@ -1,0 +1,11 @@
+{
+    "default": {
+        "name": "Projet par défaut",
+        "path": "app",
+        "domain": "localhost",
+        "php_version": "8.0",
+        "ssl": false,
+        "active": true,
+        "created": "2025-01-27T10:00:00"
+    }
+}
