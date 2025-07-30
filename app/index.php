@@ -99,9 +99,9 @@
                 </div>
                 <div class="footer-section">
                     <h4>📞 Contact</h4>
-                    <p>📧 <a href="mailto:keifrejuste26@gmail.com">keifrejuste26@gmail.com</a></p>
+                    <p>📧 <a href="mailto:frejuste.dev56@gmail.com">frejuste.dev56@gmail.com</a></p>
                     <p>🌐 <a href="https://portfolio-edumanagers-projects.vercel.app/" target="_blank">Portfolio</a></p>
-                    <p>💻 <a href="https://github.com/frejuste26" target="_blank">GitHub</a></p>
+                    <p>💻 <a href="https://github.com/Frejuste-dev" target="_blank">GitHub</a></p>
                 </div>
             </div>
             <div class="footer-bottom">

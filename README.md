@@ -193,7 +193,7 @@ Voici comment contribuer :
 > Kei Prince Frejuste
 > 💼 Web & Software Developer
 > 📫 frejuste.dev56@gmail.com
-> 🌐 [Portfolio]([https://frejuste.dev](https://portfolio-edumanagers-projects.vercel.app/)) | [GitHub](https://github.com/frejuste26)
+> 🌐 [Portfolio](https://portfolio-edumanagers-projects.vercel.app/) | [GitHub](https://github.com/Frejuste-dev)
 
 ---
 

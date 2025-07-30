@@ -192,7 +192,7 @@ $phpnx_info = '<div class="header-phoenix">
         <tr><td>Mode</td><td>Développement Portable</td></tr>
         <tr><td>Environnement</td><td>Local</td></tr>
         <tr><td>Auteur</td><td>Kei Prince Frejuste</td></tr>
-        <tr><td>Contact</td><td>keifrejuste26@gmail.com</td></tr>
+        <tr><td>Contact</td><td>frejuste.dev56@gmail.com</td></tr>
     </table>
 </div>';
 
