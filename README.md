@@ -45,11 +45,15 @@ PHPNX est un environnement **portable, automatisé et puissant** basé sur **NGI
 
 <p align="center">
   <strong>Interface Graphique (GUI)</strong><br>
-  <em>[Placeholder for new GUI screenshot]</em>
+  <img src="GUI.gif" alt="Interface Graphique PHPNX" width="720" />
 </p>
 <p align="center">
-  <strong>Web Dashboard</strong><br>
-  <em>[Placeholder for new Web Dashboard screenshot]</em>
+  <strong>Dashboard Web</strong><br>
+  <img src="GUIWEB.gif" alt="Dashboard Web PHPNX" width="720" />
+</p>
+<p align="center">
+  <strong>CLI Amélioré</strong><br>
+  <img src="ADMIN.gif" alt="CLI Amélioré PHPNX" width="720" />
 </p>
 
 ---
