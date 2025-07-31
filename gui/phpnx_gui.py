@@ -362,7 +362,7 @@ class PHPNXGui:
                 else:
                     self.root.after(0, lambda: messagebox.showerror("Erreur", "❌ Échec du démarrage des serveurs"))
             except Exception as e:
-                self.root.after(0, lambda: messagebox.showerror("Erreur", f"❌ Erreur: {e}"))
+                self.root.after(0, lambda e=e: messagebox.showerror("Erreur", f"❌ Erreur: {e}"))
                 
         threading.Thread(target=start, daemon=True).start()
         
@@ -373,7 +373,7 @@ class PHPNXGui:
                 self.phpnx.stop_servers()
                 self.root.after(0, lambda: messagebox.showinfo("Succès", "🛑 Serveurs arrêtés"))
             except Exception as e:
-                self.root.after(0, lambda: messagebox.showerror("Erreur", f"❌ Erreur: {e}"))
+                self.root.after(0, lambda e=e: messagebox.showerror("Erreur", f"❌ Erreur: {e}"))
                 
         threading.Thread(target=stop, daemon=True).start()
         
@@ -387,7 +387,7 @@ class PHPNXGui:
                 else:
                     self.root.after(0, lambda: messagebox.showerror("Erreur", "❌ Échec du redémarrage"))
             except Exception as e:
-                self.root.after(0, lambda: messagebox.showerror("Erreur", f"❌ Erreur: {e}"))
+                self.root.after(0, lambda e=e: messagebox.showerror("Erreur", f"❌ Erreur: {e}"))
                 
         threading.Thread(target=restart, daemon=True).start()
         
@@ -489,7 +489,7 @@ class PHPNXGui:
                 else:
                     self.root.after(0, lambda: messagebox.showerror("Erreur", "❌ Échec de la génération SSL"))
             except Exception as e:
-                self.root.after(0, lambda: messagebox.showerror("Erreur", f"❌ Erreur SSL: {e}"))
+                self.root.after(0, lambda e=e: messagebox.showerror("Erreur", f"❌ Erreur SSL: {e}"))
                 
         threading.Thread(target=generate, daemon=True).start()
         

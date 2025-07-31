@@ -188,7 +188,7 @@ http {{
         index index.php index.html index.htm;
         
         # Fichiers statiques
-        location ~* \.(css|js|png|jpg|jpeg|gif|ico|svg)$ {{
+        location ~* \\.(css|js|png|jpg|jpeg|gif|ico|svg)$ {{
             expires 1y;
             add_header Cache-Control "public, immutable";
         }}
@@ -203,7 +203,7 @@ http {{
         }}
         
         # Configuration PHP
-        location ~ \.php$ {{
+        location ~ \\.php$ {{
             try_files $uri =404;
             fastcgi_pass 127.0.0.1:{self.php_port};
             fastcgi_index index.php;
