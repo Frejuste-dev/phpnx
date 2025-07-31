@@ -45,7 +45,7 @@ PHPNX est un environnement **portable, automatisé et puissant** basé sur **NGI
 
 <p align="center">
   <strong>Interface Graphique (GUI)</strong><br>
-  <em>[Placeholder for new GUI screenshot]</em>
+  <img src="GUI.png" alt="GUI Included" />
 </p>
 <p align="center">
   <strong>Web Dashboard</strong><br>
