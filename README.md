@@ -1,26 +1,103 @@
-<h1 align="center">🔥 PHPNX - Le Phoenix s’élève !</h1>
+<h1 align="center">🔥 PHPNX - La Suite de Développement PHP Ultime !</h1>
 
 <p align="center">
     <img src="https://img.shields.io/badge/PHP-Ready-blue?style=for-the-badge&logo=php" alt="PHP Ready" />
     <img src="https://img.shields.io/badge/NGINX-Bundled-green?style=for-the-badge&logo=nginx" alt="NGINX" />
-    <img src="https://img.shields.io/badge/Python-Automation-yellow?style=for-the-badge&logo=python" alt="Python Automation" />
-    <img src="https://img.shields.io/badge/Windows-Portable-lightgrey?style=for-the-badge&logo=windows" alt="Windows Portable" />
+    <img src="https://img.shields.io/badge/Python-Powered-yellow?style=for-the-badge&logo=python" alt="Python Powered" />
+    <img src="https://img.shields.io/badge/Docker-Ready-blueviolet?style=for-the-badge&logo=docker" alt="Docker Ready" />
+    <img src="https://img.shields.io/badge/GUI-Included-orange?style=for-the-badge&logo=gnome" alt="GUI Included" />
 </p>
-<p align="center"><i>Un environnement de développement PHP local, rapide, portable et élégant. Alimenté par la puissance du Phoenix. 🐦‍🔥</i></p>
+<p align="center"><i>Une suite de développement PHP locale, complète et multi-plateforme. Alimentée par la puissance du Phoenix. 🐦‍🔥</i></p>
 
 ---
 
 ## ✨ Pourquoi PHPNX ?
 
-> Parce que les développeurs méritent mieux qu’un `localhost` bricolé.  
-> Parce qu’on en a marre des installations lourdes et complexes.  
-> Parce qu’un outil qui allume NGINX & PHP en un clic, c’est juste... magique.
+> Bien plus qu'un simple launcher, PHPNX est une **suite de développement complète** qui transforme votre machine en un environnement PHP productif et polyvalent. Fini les configurations complexes et les outils disparates. PHPNX centralise tout ce dont vous avez besoin, que vous soyez un développeur débutant ou un expert chevronné.
 
-PHPNX est un launcher **portable, automatisé et stylé** basé sur **NGINX + PHP + Python** qui :
-- démarre vos serveurs en un clic,
-- fonctionne hors ligne,
-- propose un menu interactif,
-- et transforme votre projet local en un havre de productivité.
+PHPNX est un environnement **portable, automatisé et puissant** basé sur **NGINX + PHP + Python** qui offre :
+-   Une **interface graphique (GUI)** pour une gestion simplifiée.
+-   Un **CLI amélioré** pour les adeptes de la ligne de commande.
+-   Le support **multi-projets** et la configuration dynamique.
+-   L'intégration **Docker** pour une portabilité et une isolation parfaites.
+-   Un **système de plugins** pour étendre ses fonctionnalités à l'infini.
+
+---
+
+## 🚀 Fonctionnalités Principales
+
+| Feature                 | Description                                                                                             | Statut |
+| ----------------------- | ------------------------------------------------------------------------------------------------------- | :----: |
+| 🧭 **Interface Graphique** | Une GUI `tkinter` complète pour gérer les serveurs, les projets, SSL, et les logs.                     |   ✅   |
+| 💻 **CLI Amélioré**         | Un menu interactif puissant pour tout contrôler depuis votre terminal.                                  |   ✅   |
+| 🐳 **Intégration Docker**   | Lancez l'environnement complet dans un conteneur Docker avec `docker-compose`.                          |   ✅   |
+| 📂 **Multi-Projets**        | Gérez plusieurs projets simultanément avec des domaines et des configurations NGINX dédiés.             |   ✅   |
+| 🔌 **Système de Plugins**   | Étendez PHPNX avec des plugins personnalisés. Un plugin de backup est déjà inclus !                    |   ✅   |
+| 🔐 **Gestion SSL Facile**   | Générez des certificats SSL locaux en un clic pour développer en `https://localhost`.                   |   ✅   |
+| 📊 **Web Dashboard**        | Un tableau de bord web pour visualiser l'état des serveurs et les statistiques.                         |   ✅   |
+| 💾 **Système de Sauvegarde**  | Créez des archives `.zip` de vos projets directement depuis le CLI ou la GUI.                           |   ✅   |
+| 跨 **Support Multi-Plateforme** | Fonctionne sur Windows (portable) et sur Linux/macOS (via Docker ou scripts natifs).                |   ✅   |
+| ⚡ **Portable & Isolé**      | Fonctionne sans installation globale et peut être lancé depuis une clé USB (sur Windows).               |   ✅   |
+
+---
+
+## 📸 Aperçu
+
+<p align="center">
+  <strong>Interface Graphique (GUI)</strong><br>
+  <em>[Placeholder for new GUI screenshot]</em>
+</p>
+<p align="center">
+  <strong>Web Dashboard</strong><br>
+  <em>[Placeholder for new Web Dashboard screenshot]</em>
+</p>
+
+---
+
+## 🛠️ Démarrage Rapide
+
+Choisissez votre méthode de lancement préférée :
+
+### 1. Avec l'Interface Graphique (Recommandé)
+
+La manière la plus simple de démarrer.
+
+1.  Assurez-vous que Python 3.8+ est installé.
+2.  Installez les dépendances : `pip install -r requirements.txt`
+3.  Lancez la GUI :
+    ```bash
+    python gui/phpnx_gui.py
+    ```
+4.  Utilisez les boutons pour démarrer, arrêter et gérer vos serveurs.
+
+### 2. Avec le CLI Amélioré
+
+Pour ceux qui préfèrent la ligne de commande.
+
+1.  Assurez-vous que Python 3.8+ est installé.
+2.  Installez les dépendances : `pip install -r requirements.txt`
+3.  Lancez le script en mode interactif :
+    ```bash
+    python phpnx_enhanced.py
+    ```
+4.  Ou utilisez les commandes directes :
+    ```bash
+    python phpnx_enhanced.py start
+    python phpnx_enhanced.py stop
+    python phpnx_enhanced.py status
+    ```
+
+### 3. Avec Docker (Multi-plateforme)
+
+La méthode la plus robuste et isolée, idéale pour Linux et macOS.
+
+1.  Assurez-vous que Docker et Docker Compose sont installés.
+2.  Lancez l'environnement en arrière-plan :
+    ```bash
+    docker-compose up -d
+    ```
+3.  Votre serveur est prêt sur [http://localhost](http://localhost).
+4.  Pour arrêter : `docker-compose down`
 
 ---
 
@@ -28,165 +105,48 @@ PHPNX est un launcher **portable, automatisé et stylé** basé sur **NGINX + PH
 
 ```bash
 phpnx/
-├── app/                    # Vos fichiers PHP
-│   ├── index.php          # Page d'accueil par défaut
-│   └── info.php           # Page info PHP (optionnel)
-├── nginx/                 # NGINX portable (à télécharger)
-│   ├── conf/
-│   │   └── nginx.conf     # Configuration NGINX
-│   ├── logs/              # Logs NGINX
-│   └── nginx.exe          # Exécutable NGINX
-├── php/                   # PHP portable (à télécharger)
-│   ├── php.exe
-│   ├── php-cgi.exe
-│   └── php.ini
-├── static/                # Assets statiques
-│   ├── css/
-│   │   └── style.css      # Styles pour l'interface
-│   ├── js/
-│   │   └── script.js      # Scripts JS
-│   └── favicon.ico        # Favicon Phoenix
-├── .env/                  # Environnement virtuel Python (auto-créé)
-├── config/                # Configurations
-│   └── settings.json      # Paramètres PHPNX
-├── logs/                  # Logs du système
-│   └── phpnx.log         # Log principal
-├── phpnx.py              # Script Python principal
-├── phpnx.bat             # Lanceur Windows
-├── requirements.txt      # Dépendances Python
-├── README.md            # Documentation
-└── .gitignore           # Fichiers à ignorer
-```
-
-
----
-
-## 🚀 Fonctionnalités
-
-- ✅ Zéro configuration manuelle
-- 🧠 Script Python intelligent (`server.py`)
-- 🛠 Interface interactive (démarrer, arrêter, redémarrer)
-- 🧪 Compatible tous projets PHP
-- 🎯 Installation 100% portable (clé USB, disque dur, etc.)
-- 💻 Aucun serveur global requis
-- 🔥 Ambiance Phoenix garantie
-
----
-
-## 📸 Aperçu
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/0000000/phpnx_demo.gif" alt="Demo Interface PHPNX" width="720" />
-</p>
-
----
-
-## 🛠 Installation (Windows)
-
-1. **Cloner le repo ou télécharger le .zip**
-2. Placer vos fichiers PHP dans le dossier `app/`
-3. Double-cliquer sur `phpnx.bat`
-4. ✨ C’est lancé. Votre serveur est prêt sur [http://localhost](http://localhost)
-
----
-
-## 🐍 Dépendances
-
-- [x] Python 3.8+
-- [x] NGINX portable
-- [x] PHP CGI (php-cgi.exe)
-
----
-
-## 📥 Installation manuelle
-
-1. Télécharge PHP depuis [php.net](https://www.php.net/downloads)
-2. Télécharge NGINX depuis [nginx.org](https://nginx.org/en/download.html)
-3. Place les deux dossiers dans `C:/phpnx/php` et `C:/phpnx/nginx`
-
----
-
-## 🧪 Mode terminal (optionnel)
-
-```bash
-  python phpnx.py start    # Lancer PHP + NGINX
-  python phpnx.py stop     # Stopper les serveurs
-  python phpnx.py restart  # Restart propre
-  python phpnx.py          # Mode menu interactif
+├── app/                    # Projet PHP par défaut
+├── config/                 # Fichiers de configuration (settings.json, projects.json)
+├── cross_platform/         # Scripts pour environnements non-Windows
+├── docker/                 # Fichiers Docker (Dockerfile, docker-compose.yml)
+├── gui/                    # Interface graphique (tkinter)
+├── logs/                   # Fichiers de log (phpnx.log, nginx.log, etc.)
+├── plugins/                # Plugins pour étendre les fonctionnalités
+├── projects/               # Dossier pour les projets supplémentaires (mode multi-projets)
+├── ssl/                    # Certificats SSL générés
+├── static/                 # Fichiers statiques (CSS, JS, dashboard)
+├── phpnx.py                # Script de base (legacy)
+├── phpnx_enhanced.py       # CLI amélioré avec toutes les fonctionnalités
+├── phpnx_websocket.py      # Serveur WebSocket pour le dashboard
+├── requirements.txt        # Dépendances Python
+└── README.md               # Cette documentation
 ```
 
 ---
 
-## 🗺️ État du Projet & Feuille de Route
+## 🗺️ Feuille de Route
 
-> Voici un aperçu clair des fonctionnalités **actuellement en place**, celles **en cours de développement**, et celles **que nous imaginons pour l'avenir**.  
+Le Phoenix ne s'arrête jamais de renaître. Voici les prochaines évolutions prévues :
 
-### ✅ Fonctionnalités déjà codées
-
-- [x] 📦 Environnement 100% portable (aucune installation système requise)
-- [x] 🐍 Script Python `server.py` interactif (start, stop, restart)
-- [x] 🧪 Menu en ligne de commande avec choix utilisateur
-- [x] 🪄 Lancement automatique de PHP FastCGI + NGINX
-- [x] 🌐 Ouverture du navigateur sur `http://localhost`
-- [x] ⚙️ Détection et création automatique d’un environnement virtuel Python `.env`
-- [x] 📁 Structure standardisée (`php/`, `nginx/`, `app/`, `static/`)
-- [x] 🎨 Interface de démarrage HTML stylée et animée
-- [x] 📜 Footer enrichi avec infos personnelles (contact, email, GitHub, portfolio…)
-- [x] 🧼 Nettoyage automatique des anciens processus avant démarrage
-
----
-
-### 🏗️ Fonctionnalités à venir
-
-- [ ] 🧭 Interface graphique Python avec `tkinter` ou `PyQt` pour les non-techs
-- [ ] 📊 Page d’accueil avec statistiques PHP (RAM, version, modules actifs, etc.)
-- [ ] 🪪 Interface d’authentification pour restreindre l’accès à certaines ressources
-- [ ] 🌐 Multi-sites support (accueillir plusieurs projets PHP dans un seul serveur)
-- [ ] 🔄 Actualisation automatique du serveur lors des changements de fichiers
-- [ ] 🔐 Intégration SSL locale avec `mkcert` (https://localhost)
-- [ ] 🧠 Assistant CLI pour ajouter automatiquement un nouveau projet
-- [ ] 📁 Configuration dynamique de `nginx.conf` via le script Python
-
----
-
-### 💡 Fonctionnalités envisagées
-
-> Ce sont des idées ambitieuses, ouvertes à contributions externes :
-
-- 🧬 Plugin système (créer et charger des extensions pour PHPNX)
-- 💻 Version Linux portable (avec PHP & NGINX embarqués)
-- 📦 Création d’un installeur `.exe` avec **icône Phoenix**
-- 🧱 Intégration avec Docker en option
-- 🛰️ Mise à jour automatique du launcher via GitHub
-- 🧩 Module pour intégrer un éditeur de code minimaliste embarqué
-
----
-
-### 🧑‍💻 Nous avons besoin de :
-
-| Rôle                | Description                                     |
-|---------------------|-------------------------------------------------|
-| 💻 Dev Python        | Pour améliorer le launcher et les automatisations |
-| 🌐 Dev Web Frontend  | Pour améliorer la page HTML par défaut           |
-| ⚙️ Dev Ops           | Pour intégrer Docker et config SSL locale        |
-| 🎨 UI/UX Designer    | Pour créer un vrai branding visuel Phoenix       |
-| 📖 Rédacteur Docs    | Pour mieux documenter l’usage de chaque module   |
+-   [ ] **Finalisation du support natif pour Linux/macOS** en dehors de Docker.
+-   [ ] **Gestionnaire de versions PHP** pour switcher facilement entre les versions.
+-   [ ] **Intégration d'un terminal web** dans le dashboard.
+-   [ ] **Création d'un installeur `exe` et `dmg`** pour une distribution encore plus simple.
+-   [ ] **Mise à jour automatique** de PHPNX via GitHub.
+-   [ ] **Enrichissement du catalogue de plugins** (ex: Xdebug, MailHog, etc.).
 
 ---
 
 ## 🤝 Contribuer
 
-Tu es développeur, designer, testeur, devOps, ou juste passionné de belles choses ?
-Rejoins le projet. Le Phoenix s’élève avec toi.
+Le projet est plus vivant que jamais et les contributions sont les bienvenues ! Que vous soyez développeur, designer, ou testeur, votre aide est précieuse.
 
-Voici comment contribuer :
-
-1. 🍴 Fork ce repo
-2. 🚀 Clone ton fork
-3. 💻 Crée une branche (git checkout -b feature/mon-idee)
-4. 🔥 Cogne du code
-5. ✅ Push tes changements (git push origin feature/mon-idee)
-6. 📩 Crée une Pull Request
+1.  🍴 Fork ce repo
+2.  🚀 Clone ton fork
+3.  💻 Crée une branche (`git checkout -b feature/mon-idee`)
+4.  🔥 Codez avec passion
+5.  ✅ Pushez vos changements (`git push origin feature/mon-idee`)
+6.  📩 Créez une Pull Request
 
 ## 🧙‍♂️ Auteur
 
@@ -202,5 +162,3 @@ Ce projet est distribué sous licence MIT.
 Fais-en bon usage, mais surtout… fais-le vivre.
 
 > “Comme le Phoenix, tout projet peut renaître de ses cendres. Il suffit d’un peu de code, d’un peu de feu, et d’une grande vision.”
-
----
